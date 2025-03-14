@@ -52,7 +52,9 @@ const HomeScreen = () => {
         
         <Button
           title="Encerrar todas as tarefas"
-          onPress={() => Alert.alert('Bem-vindo', 'Aplicativo React Native')}
+          onPress={() => {
+            setItems([])
+          }}
           color="#f31a0a"
         />
       </Content>

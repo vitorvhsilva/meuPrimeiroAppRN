@@ -10,7 +10,7 @@ export default function HeaderComponent() {
 }
 
 const HeaderContainer = styled.View`
-  background-color: #007BFF;
+  background-color: #08315e;
   padding-top: ${StatusBar.currentHeight}px;
   padding: 20px;
 `;
