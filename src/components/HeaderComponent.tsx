@@ -1,12 +1,12 @@
 import styled from 'styled-components/native';
 import { StatusBar } from 'react-native';
 
-export default function Header() {
-    return (
-        <HeaderContainer>
-            <HeaderTitle>Meu Primeiro App</HeaderTitle>
-        </HeaderContainer>
-    )
+export default function HeaderComponent() {
+  return (
+    <HeaderContainer>
+      <HeaderTitle>Task List</HeaderTitle>
+    </HeaderContainer>
+  )
 }
 
 const HeaderContainer = styled.View`

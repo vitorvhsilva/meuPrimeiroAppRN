@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { ScrollView, FlatList, Alert, Button } from 'react-native';
 import styled from 'styled-components/native';
-import { globalStyles } from '../styles/globalStyles';
-import Header from '../components/Header';
+import HeaderComponent from '../components/HeaderComponent';
 
 const HomeScreen = () => {
   const [text, setText] = useState('');
   const [items, setItems] = useState([
-    { id: '1', text: 'Item 1' },
-    { id: '2', text: 'Item 2' },
-    { id: '3', text: 'Item 3' },
+    { id: '1', text: 'Limpar a garagem' }
   ]);
 
   const addItem = () => {
@@ -21,11 +18,11 @@ const HomeScreen = () => {
 
   return (
     <Container>
-      <Header/>
+      <HeaderComponent/>
 
       <Content>
         <Input
-          placeholder="Digite um item"
+          placeholder="Digite uma tarefa"
           onChangeText={setText}
           value={text}
         />
@@ -40,14 +37,23 @@ const HomeScreen = () => {
           renderItem={({ item }) => (
             <ListItem>
               <ListItemText>{item.text}</ListItemText>
+              <Button
+                title="Encerrar tarefa"
+                color="#f31a0a"
+                onPress={() => {
+                    const newItems = items.filter(i => i.id !== item.id); 
+                    setItems(newItems); 
+                }}
+              />
             </ListItem>
           )}
         />
 
+        
         <Button
-          title="Sobre"
+          title="Encerrar todas as tarefas"
           onPress={() => Alert.alert('Bem-vindo', 'Aplicativo React Native')}
-          color="#6c757d"
+          color="#f31a0a"
         />
       </Content>
     </Container>
@@ -89,7 +95,10 @@ const ListItem = styled.View`
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 10px;
-  elevation: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 `;
 
 const ListItemText = styled.Text`
